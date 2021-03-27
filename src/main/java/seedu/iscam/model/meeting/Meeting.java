@@ -13,7 +13,7 @@ import seedu.iscam.model.client.Name;
 import seedu.iscam.model.tag.Tag;
 
 /**
- * Represents a Meeting in the client book.
+ * Represents a Meeting in the address book.
  * Guarantees: identity fields are present and not null, data fields are validated, immutable.
  */
 public class Meeting {
@@ -161,8 +161,7 @@ public class Meeting {
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
-        builder.append("Client Name: ")
-                .append(clientName.toString())
+        builder.append(clientName.toString())
                 .append("; Date & Time: ")
                 .append(dateTime.toString())
                 .append("; Location: ")

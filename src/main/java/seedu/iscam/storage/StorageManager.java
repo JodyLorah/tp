@@ -8,7 +8,6 @@ import java.util.logging.Logger;
 import seedu.iscam.commons.core.LogsCenter;
 import seedu.iscam.commons.exceptions.DataConversionException;
 import seedu.iscam.model.ReadOnlyClientBook;
-import seedu.iscam.model.ReadOnlyMeetingBook;
 import seedu.iscam.model.ReadOnlyUserPrefs;
 import seedu.iscam.model.UserPrefs;
 
@@ -19,19 +18,14 @@ public class StorageManager implements Storage {
 
     private static final Logger logger = LogsCenter.getLogger(StorageManager.class);
     private ClientBookStorage clientBookStorage;
-    private MeetingBookStorage meetingBookStorage;
     private UserPrefsStorage userPrefsStorage;
 
     /**
-     * Creates a {@code StorageManager} with the given
-     * {@code ClientBookStorage}, {@code MeetingBookStorage} and {@code UserPrefStorage}.
+     * Creates a {@code StorageManager} with the given {@code AddressBookStorage} and {@code UserPrefStorage}.
      */
-    public StorageManager(ClientBookStorage clientBookStorage,
-                          MeetingBookStorage meetingBookStorage,
-                          UserPrefsStorage userPrefsStorage) {
+    public StorageManager(ClientBookStorage clientBookStorage, UserPrefsStorage userPrefsStorage) {
         super();
         this.clientBookStorage = clientBookStorage;
-        this.meetingBookStorage = meetingBookStorage;
         this.userPrefsStorage = userPrefsStorage;
     }
 
@@ -80,35 +74,6 @@ public class StorageManager implements Storage {
     public void saveClientBook(ReadOnlyClientBook clientBook, Path filePath) throws IOException {
         logger.fine("Attempting to write to data file: " + filePath);
         clientBookStorage.saveClientBook(clientBook, filePath);
-    }
-
-    // ================ MeetingBook methods ==============================
-
-    @Override
-    public Path getMeetingBookFilePath() {
-        return meetingBookStorage.getMeetingBookFilePath();
-    }
-
-    @Override
-    public Optional<ReadOnlyMeetingBook> readMeetingBook() throws DataConversionException, IOException {
-        return readMeetingBook(meetingBookStorage.getMeetingBookFilePath());
-    }
-
-    @Override
-    public Optional<ReadOnlyMeetingBook> readMeetingBook(Path filePath) throws DataConversionException, IOException {
-        logger.fine("Attempting to read data from file: " + filePath);
-        return meetingBookStorage.readMeetingBook(filePath);
-    }
-
-    @Override
-    public void saveMeetingBook(ReadOnlyMeetingBook meetingBook) throws IOException {
-        saveMeetingBook(meetingBook, meetingBookStorage.getMeetingBookFilePath());
-    }
-
-    @Override
-    public void saveMeetingBook(ReadOnlyMeetingBook meetingBook, Path filePath) throws IOException {
-        logger.fine("Attempting to write to data file: " + filePath);
-        meetingBookStorage.saveMeetingBook(meetingBook, filePath);
     }
 
 }

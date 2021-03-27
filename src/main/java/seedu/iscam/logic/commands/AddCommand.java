@@ -19,14 +19,14 @@ public class AddCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a client to the iScam Book. \n"
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a client to the iscam book. "
             + "Parameters: "
             + PREFIX_NAME + "NAME "
             + PREFIX_PHONE + "PHONE "
             + PREFIX_EMAIL + "EMAIL "
             + PREFIX_LOCATION + "LOCATION "
             + PREFIX_PLAN + "INSURANCE PLAN "
-            + "(optional) " + PREFIX_TAG + "TAG(s) \n"
+            + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "John Doe "
             + PREFIX_PHONE + "98765432 "

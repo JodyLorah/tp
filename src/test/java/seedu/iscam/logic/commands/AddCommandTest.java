@@ -20,9 +20,7 @@ import seedu.iscam.model.ClientBook;
 import seedu.iscam.model.MeetingBook;
 import seedu.iscam.model.Model;
 import seedu.iscam.model.ObservableClient;
-import seedu.iscam.model.ObservableMeeting;
 import seedu.iscam.model.ReadOnlyClientBook;
-import seedu.iscam.model.ReadOnlyMeetingBook;
 import seedu.iscam.model.ReadOnlyUserPrefs;
 import seedu.iscam.model.client.Client;
 import seedu.iscam.model.meeting.Meeting;
@@ -184,21 +182,6 @@ public class AddCommandTest {
         }
 
         @Override
-        public void setMeetingBook(ReadOnlyMeetingBook newData) {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
-        public Path getMeetingBookFilePath() {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
-        public void setMeetingBookFilePath(Path meetingBookFilePath) {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
         public ObservableList<Meeting> getFilteredMeetingList() {
             throw new AssertionError("This method should not be called.");
         }
@@ -210,16 +193,6 @@ public class AddCommandTest {
 
         @Override
         public void setDetailedClient(Client client) {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
-        public ObservableMeeting getDetailedMeeting() {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
-        public void setDetailedMeeting(Meeting meeting) {
             throw new AssertionError("This method should not be called.");
         }
     }
